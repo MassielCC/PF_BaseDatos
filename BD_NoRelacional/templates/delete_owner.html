@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar Dueño</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename ='assets/imgs/favicon.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/tooltip.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/custom_alert.css') }}">
+</head>
+{% block body %}
+<section>
+    <div class="py-2 px-5">
+    <h2>
+        <a href="/owner" class="left" title="Volver"><i class="bi bi-arrow-left-circle px-2"></i></a>
+        Editar nodo Owner
+        <hr>
+    </h2>
+
+    <form action="{{ url_for('update_owner') }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <div class="row">
+            <p>Seleccionar el nodo a editar:</p>
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" class="form-control border-primary" required>
+        </div>
+        <div class="row">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="row">
+            <label for="lastname">Apellido:</label>
+            <input type="text" id="lastname" name="lastname" class="form-control" required>
+        </div>
+
+        <button class="button-primary mt-3 btn btn-info btn-block bold" type="submit">Editar Owner</button>
+    </form>
+    </div>
+</section>
+{% endblock %}
+

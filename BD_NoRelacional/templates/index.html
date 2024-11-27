@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Helping Pets</title>
+</head>
+<body>
+    <h2>Nodos de Dueños Registrados</h2>
+    {% block body %}
+<section>
+{% if (datos) %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nodos</th>
+                <th scope="col">Relaciones</th>
+                <th scope="col">Nodo conectado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dueno in datos %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{% for key, value in dueno["Owner"].items() %}
+                    <p>{{ key }}: {{ value }}</p>
+                    {% endfor %}
+                </td>
+                <td>{{ dueno["Relationships"] }}
+                </td>
+                <td>{% for key, value in dueno["ConnectedNode"].items() %}
+                    <p>{{ key }}: {{ value }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h3 class="text-center">No hay nodos Owner</h3>
+    </div>
+</div>
+{% endif %}
+
+</section>
+{% endblock %}
+
+
+</body>
+</html>
