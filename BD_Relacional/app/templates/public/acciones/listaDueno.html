@@ -1,0 +1,62 @@
+
+<!-- {{ miData }} -->
+{% if (miData) %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">idDueno</th>
+                <th scope="col">TipoDoc</th>
+                <th scope="col">NumDoc</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">FechaNac</th>
+                <th scope="col">EsBuscador</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dueno in miData %}
+            {% with urlCarro = '/static/assets/fotos_carros/' %}
+            <tr id="Registro_{{ dueno.idDueno }}">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ dueno.idDueno }}</td>
+                <td>{{ dueno.TipoDoc }}</td>
+                <td>{{ dueno.NumDoc }}</td>
+                <td>{{ dueno.Nombre }}</td>
+                <td>{{ dueno.Apellido }}</td>
+                <td>{{ dueno.FechaNac }}</td>
+                <td>{{ dueno.EsBuscador }}</td>
+                <td width="300">
+                    <span style="display: flex; justify-content:space-between;">
+                        <a href="{{ url_for('viewDetalleDueno', idDueno = dueno.idDueno ) }}" type="button"
+                            class="btn btn-warning btn-sm" tooltip="Ver Registro">
+                            <i class="bi bi-eye"></i>
+                            Ver
+                        </a>
+                        <a href="{{ url_for('formViewUpdateDueno', idDueno = dueno.idDueno ) }}" class="btn btn-info btn-sm"
+                            tooltip="Actualizar Registro">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Actualizar
+                        </a>
+                        <a href="#" id="idDueno_{{ dueno.idDueno }}" onclick="eliminarDuenoJavaScript('{{ dueno.idDueno }}');" class="btn btn-danger btn-sm"
+                            tooltip="Eliminar Registro">
+                            <i class="bi bi-trash3"></i>
+                            Eliminar
+                        </a>
+                    </span>
+                </td>
+            </tr>
+            {% endwith %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h3 class="text-center">No hay Dueños</h3>
+    </div>
+</div>
+{% endif %}

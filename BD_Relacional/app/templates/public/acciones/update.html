@@ -1,0 +1,54 @@
+{% extends 'public/layout.html' %}
+{% block title %}Registrar Mascota{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/mascota" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Actualizar Información de la mascota
+        <hr>
+    </h2>
+
+    {% if (dataInfo) %}
+      <form action="{{ url_for('formActualizarMascota', idMascota = dataInfo.idMascota ) }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="text" class="form-control" name="idMascota" value="{{ dataInfo.idMascota }}" required hidden>
+        
+        <div class="row">
+            <div class="col">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="Nombre" value="{{ dataInfo.Nombre }}" class="form-control">
+            </div>
+            <div class="col">
+                <label for="Animal">Animal</label>
+                <input type="text" name="Animal" value="{{ dataInfo.Animal }}" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Raza">Raza</label>
+                <input type="text" name="Raza" value="{{ dataInfo.Raza }}" class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="FechaNac">FechaNac</label>
+                <input type="text" name="FechaNac" value="{{ dataInfo.FechaNac }}" class="form-control">
+        </div>
+
+        <input class="button-primary mt-3 btn btn-info btn-block bold" type="submit" value="Guardar Actualización">
+    </form>
+
+    {% else %}
+    <div class="col-12">
+        <h2 class="text-center">
+            No existe la mascota
+        </h2>
+    </div>
+{% endif %}
+
+</section>
+
+{% endblock %}

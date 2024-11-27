@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Helping Pets</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename ='assets/imgs/favicon.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/tooltip.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='assets/css/custom_alert.css') }}">
+</head>
+<body>
+    {% include 'public/navbar.html' %}
+    {% include 'public/alerta.html' %}
+
+    <div class="container px-2 pb-5">
+        <div class="row py-5">
+            <div class="col-md-6">
+            <img src="https://redpublica.pe/wp-content/uploads/2024/03/Cuanto-es-el-sueldo-de-un-veterinario-en-Peru.jpg" class="img-fluid" alt="Imagen">
+        </div>
+            <div class="col-md-6">
+           <h1>Helping Pets</h1>
+                <p><strong>¡Bienvenido a nuestra plataforma de búsqueda de mascotas!</strong></p>
+                <p>Estamos encantados de que estés aquí para encontrar a tu compañero peludo ideal. Ya sea que busques un perro, gato, o incluso una mascota menos común, nuestra página te ofrece una amplia variedad de opciones para ayudarte a tomar la mejor decisión.</p>
+                <p>Puedes explorar perfiles de mascotas disponibles para adopción, ver detalles sobre su especie, raza, edad y características, y contactar con los responsables para obtener más información.</p>
+                <p>Comienza tu búsqueda hoy mismo y encuentra el amigo perfecto que hará tu vida más feliz y llena de amor. ¡Tu nueva mascota te está esperando!</p>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

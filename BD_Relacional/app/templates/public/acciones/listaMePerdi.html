@@ -1,0 +1,60 @@
+
+<!-- {{ miData }} -->
+{% if (miData) %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">idMePerdi</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Distrito</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Mascota_idMascota1</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for perdida in miData %}
+            {% with urlCarro = '/static/assets/fotos_carros/' %}
+            <tr id="Registro_{{ perdida.idMePerdi }}">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ perdida.idMePerdi }}</td>
+                <td>{{ perdida.Direccion }}</td>
+                <td>{{ perdida.Distrito }}</td>
+                <td>{{ perdida.Provincia }}</td>
+                <td>{{ perdida.Fecha }}</td>
+                <td>{{ perdida.Mascota_idMascota1 }}</td>
+                <td width="300">
+                    <span style="display: flex; justify-content:space-between;">
+                        <a href="{{ url_for('viewDetalleMePerdi', idMePerdi = perdida.idMePerdi ) }}" type="button"
+                            class="btn btn-warning btn-sm" tooltip="Ver Registro">
+                            <i class="bi bi-eye"></i>
+                            Ver
+                        </a>
+                        <a href="{{ url_for('formViewUpdateMePerdi', idMePerdi = perdida.idMePerdi ) }}" class="btn btn-info btn-sm"
+                            tooltip="Actualizar Registro">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Actualizar
+                        </a>
+                        <a href="#" id="idMePerdi_{{ perdida.idMePerdi }}" onclick="eliminarMePerdiJavaScript('{{ perdida.idMePerdi }}');" class="btn btn-danger btn-sm"
+                            tooltip="Eliminar Registro">
+                            <i class="bi bi-trash3"></i>
+                            Eliminar
+                        </a>
+                    </span>
+                </td>
+            </tr>
+            {% endwith %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h3 class="text-center">No hay info de Me Perdi</h3>
+    </div>
+</div>
+{% endif %}

@@ -1,0 +1,51 @@
+{% extends 'public/layoutDueno.html' %}
+{% block title %}Registrar Dueño{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/dueno" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Registrar Nuevo Dueño
+        <hr>
+    </h2>
+
+    <form action="{{ url_for('formAddDueno') }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <label for="TipoDoc">TipoDoc</label>
+                <input type="text" name="TipoDoc" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="NumDoc">NumDoc</label>
+                <input type="text" name="NumDoc" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="Nombre" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="Apellido">Apellido</label>
+                <input type="text" name="Apellido" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="FechaNac">FechaNac</label>
+                <input type="text" name="FechaNac" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="EsBuscador">EsBuscador</label>
+                <input type="text" name="EsBuscador" class="form-control" required>
+            </div>
+        </div>
+        <input class="button-primary mt-3 btn btn-info btn-block bold" type="submit" value="Guardar Registro">
+    </form>
+</section>
+
+{% endblock %}

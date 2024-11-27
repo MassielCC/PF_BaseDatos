@@ -1,0 +1,37 @@
+{% extends 'public/layoutDueno.html' %}
+{% block title %}Mostrar Owner{% endblock %}
+
+{% block body %}
+<section>
+{% if (datos) %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Nodos</th>
+                <th scope="col">Relaciones</th>
+                <th scope="col">Nodo conectado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dueno in datos %}
+            <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ dueno.Owner }}</td>
+                <td>{{ dueno.Relationships }}</td>
+                <td>{{ dueno.ConnectedNode }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h3 class="text-center">No hay nodos Owner</h3>
+    </div>
+</div>
+{% endif %}
+
+</section>
+{% endblock %}

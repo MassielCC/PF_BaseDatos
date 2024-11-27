@@ -1,0 +1,58 @@
+
+<!-- {{ miData }} -->
+{% if (miData) %}
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">idMascota</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Animal</th>
+                <th scope="col">Raza</th>
+                <th scope="col">FechaNac</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mascota in miData %}
+            {% with urlCarro = '/static/assets/fotos_carros/' %}
+            <tr id="Registro_{{ mascota.idMascota }}">
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ mascota.idMascota }}</td>
+                <td>{{ mascota.Nombre }}</td>
+                <td>{{ mascota.Animal }}</td>
+                <td>{{ mascota.Raza }}</td>
+                <td>{{ mascota.FechaNac }}</td>
+                <td width="300">
+                    <span style="display: flex; justify-content:space-between;">
+                        <a href="{{ url_for('viewDetalleMascota', idMascota = mascota.idMascota ) }}" type="button"
+                            class="btn btn-warning btn-sm" tooltip="Ver Registro">
+                            <i class="bi bi-eye"></i>
+                            Ver
+                        </a>
+                        <a href="{{ url_for('formViewUpdateMascota', idMascota = mascota.idMascota ) }}" class="btn btn-info btn-sm"
+                            tooltip="Actualizar Registro">
+                            <i class="bi bi-arrow-clockwise"></i>
+                            Actualizar
+                        </a>
+                        <a href="#" id="idMascota_{{ mascota.idMascota }}" onclick="eliminarMascotaJavaScript('{{ mascota.idMascota }}');" class="btn btn-danger btn-sm"
+                            tooltip="Eliminar Registro">
+                            <i class="bi bi-trash3"></i>
+                            Eliminar
+                        </a>
+                    </span>
+                </td>
+            </tr>
+            {% endwith %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="row mb-5">
+    <div class="col-md-12">
+        <h3 class="text-center">No hay Mascotas</h3>
+    </div>
+</div>
+{% endif %}

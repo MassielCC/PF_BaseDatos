@@ -1,0 +1,46 @@
+{% extends 'public/layoutMePerdi.html' %}
+{% block title %}Registrar Me Perdi{% endblock %}
+
+{% block body %}
+
+<section>
+    <h2>
+        <a href="/MePerdi" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Registrar Nueva Info de Me Perdi
+        <hr>
+    </h2>
+
+    <form action="{{ url_for('formAddMePerdi') }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <label for="Direccion">Direccion</label>
+                <input type="text" name="Direccion" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="Distrito">Distrito</label>
+                <input type="text" name="Distrito" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Provincia">Provincia</label>
+                <input type="text" name="Provincia" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="Fecha">Fecha</label>
+                <input type="text" name="Fecha" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Mascota_idMascota1">Mascota_idMascota1</label>
+                <input type="text" name="Mascota_idMascota1" class="form-control" required>
+            </div>
+        </div>
+        <input class="button-primary mt-3 btn btn-info btn-block bold" type="submit" value="Guardar Registro">
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'public/layoutDueno.html' %}
+{% block title %}Registrar Dueño{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/dueno" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Detalles del Dueño
+        <hr>
+    </h2>
+
+    {% if (infoDueno) %}
+    
+    <!-- {{ infoMascota }} -->
+
+
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title"> <strong>{{ infoDueno.idDueno }}</strong></h5>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">TipoDoc: <strong>{{ infoDueno.TipoDoc }}</strong></li>
+          <li class="list-group-item">NumDoc: <strong>{{ infoDueno.NumDoc }}</strong></li>
+          <li class="list-group-item">Nombre: <strong>{{ infoDueno.Nombre }}</strong></li>
+          <li class="list-group-item">Apellido: <strong>{{ infoDueno.Apellido }}</strong></li>
+          <li class="list-group-item">FechaNac: <strong>{{ infoDueno.FechaNac }}</strong></li>
+          <li class="list-group-item">EsBuscador: <strong>{{ infoDueno.EsBuscador }}</strong></li>
+        </ul>
+      </div>
+
+      {% else %}
+      <div class="col-12">
+          <h2 class="text-center">
+              No existe el dueño
+          </h2>
+      </div>
+{% endif %}
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'public/layout.html' %}
+{% block title %}Registrar Mascota{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/mascota" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Detalles de la Mascota
+        <hr>
+    </h2>
+
+    {% if (infoMascota) %}
+    
+    <!-- {{ infoMascota }} -->
+    
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title"> <strong>{{ infoMascota.idMascota }}</strong></h5>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Nombre: <strong>{{ infoMascota.Nombre }}</strong></li>
+          <li class="list-group-item">Animal: <strong>{{ infoMascota.Animal }}</strong></li>
+          <li class="list-group-item">Raza: <strong>{{ infoMascota.Raza }}</strong></li>
+          <li class="list-group-item">FechaNac: <strong>{{ infoMascota.FechaNac }}</strong></li>
+        </ul>
+      </div>
+
+      {% else %}
+      <div class="col-12">
+          <h2 class="text-center">
+              No existe la mascota
+          </h2>
+      </div>
+{% endif %}
+
+</section>
+
+{% endblock %}

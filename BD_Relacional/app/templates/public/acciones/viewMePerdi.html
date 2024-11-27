@@ -1,0 +1,42 @@
+{% extends 'public/layoutMePerdi.html' %}
+{% block title %}Registrar Me Perdi{% endblock %}
+
+{% block body %}
+
+<section>
+    <h2>
+        <a href="/MePerdi" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Detalles de Me Perdi
+        <hr>
+    </h2>
+
+    {% if (infoMePerdi) %}
+    
+    <!-- {{ infoMascota }} -->
+
+
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title"> <strong>{{ infoMePerdi.idMePerdi }}</strong></h5>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Direccion: <strong>{{ infoMePerdi.Direccion }}</strong></li>
+          <li class="list-group-item">Distrito: <strong>{{ infoMePerdi.Distrito }}</strong></li>
+          <li class="list-group-item">Provincia: <strong>{{ infoMePerdi.Provincia }}</strong></li>
+          <li class="list-group-item">Fecha: <strong>{{ infoMePerdi.Fecha }}</strong></li>
+          <li class="list-group-item">Mascota_idMascota1: <strong>{{ infoMePerdi.Mascota_idMascota1 }}</strong></li>
+        </ul>
+      </div>
+
+      {% else %}
+      <div class="col-12">
+          <h2 class="text-center">
+              No existe Me Perdi
+          </h2>
+      </div>
+{% endif %}
+
+</section>
+
+{% endblock %}

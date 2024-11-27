@@ -1,0 +1,40 @@
+{% extends 'public/layout.html' %}
+{% block title %}Registrar Mascota{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/mascota" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Registrar Nuevo Mascota
+        <hr>
+    </h2>
+
+    <form action="{{ url_for('formAddMascota') }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="Nombre" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="Animal">Animal</label>
+                <input type="text" name="Animal" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Raza">Raza</label>
+                <input type="text" name="Raza" class="form-control" required>
+            </div>
+            <div class="col">
+                <label for="FechaNac">FechaNac</label>
+                <input type="text" name="FechaNac" class="form-control" required>
+            </div>
+        </div>
+        <input class="button-primary mt-3 btn btn-info btn-block bold" type="submit" value="Guardar Registro">
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'public/layoutMePerdi.html' %}
+{% block title %}Registrar Me Perdi{% endblock %}
+
+{% block body %}
+
+
+<section>
+    <h2>
+        <a href="/MePerdi" class="left" title="Volver"><i class="bi bi-arrow-left-circle"></i></a>
+        Actualizar Información de Me Perdi
+        <hr>
+    </h2>
+
+    {% if (dataInfo) %}
+      <form action="{{ url_for('formActualizarMePerdi', idMePerdi = dataInfo.idMePerdi ) }}" method="POST" class="mb-3" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="text" class="form-control" name="idMePerdi" value="{{ dataInfo.idMePerdi }}" required hidden>
+        
+        <div class="row">
+            <div class="col">
+                <label for="Direccion">Direccion</label>
+                <input type="text" name="Direccion" value="{{ dataInfo.Direccion }}" class="form-control">
+            </div>
+            <div class="col">
+                <label for="Distrito">Distrito</label>
+                <input type="text" name="Distrito" value="{{ dataInfo.Distrito }}" class="form-control">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Provincia">Provincia</label>
+                <input type="text" name="Provincia" value="{{ dataInfo.Provincia }}" class="form-control">
+            </div>
+
+            <div class="col">
+                <label for="Fecha">Fecha</label>
+                <input type="text" name="Fecha" value="{{ dataInfo.Fecha }}" class="form-control">
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="Mascota_idMascota1">Mascota_idMascota1</label>
+                <input type="text" name="Mascota_idMascota1" value="{{ dataInfo.Mascota_idMascota1 }}" class="form-control">
+            </div>
+        </div>
+
+        <input class="button-primary mt-3 btn btn-info btn-block bold" type="submit" value="Guardar Actualización">
+    </form>
+
+    {% else %}
+    <div class="col-12">
+        <h2 class="text-center">
+            No existe info de Me Perdi
+        </h2>
+    </div>
+{% endif %}
+
+</section>
+
+{% endblock %}
