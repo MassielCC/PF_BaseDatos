@@ -5,7 +5,7 @@ def connectionBD():
     host = "autorack.proxy.rlwy.net"
     database = "mydb"
     user = "root"
-    password = "VUyCMXXUsCRvgznKlTKAQzONIunaMTcr"
+    password = "##"
     port = 26440
 
     try:
